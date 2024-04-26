@@ -5,8 +5,8 @@ install:
 	poetry install -n
 
 #* Regenerate _pb.py from definitions under proto
-.PHONY: regen-proto
-regen-proto:
+.PHONY: generate_proto_definitions
+generate_proto_definitions:
 	rm -rf simple_grpc_py/generated
 	mkdir -p simple_grpc_py/generated
 	python -m grpc_tools.protoc -I proto \

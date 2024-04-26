@@ -6,29 +6,41 @@ This app implements [Simple Retry API](proto/simple_service/v1/simple_retry_api.
 - Running a python client with configured retries via channel options
 - Running a python client with manual retries via channel options
 
-This repo implements the above in ruby and is meant to be paired with this for cross lang testing.
+[simple-grpc-rb](https://github.com/paigeruppel-upstart/simple-grpc-rb) implements the above in ruby and is meant to be paired with this for cross lang testing.
 
-## Re-Generate stubs from simple_retry_api.proto
-`make regen-proto`
+## Usage
 
-## Serve the API / run the Server
+### Install Dependencies
+- Requires python = "^3.8" and Poetry 1.4.2
+```shell
+make install
+```
 
-`python simple_grpc_py/server.py` - defaults to port 7777 (defined in constants.py/PYTHON_SERVER_PORT = "7777")
+### Re-Generate stubs from simple_retry_api.proto
+```shell
+make generate_proto_definitions
+```
 
-## Run a retry client against the above server
+### Serve the API / run the Server
 
-Client configured with channel args / service_config:
-`python simple_grpc_py/configured_retry_client.py` - defaults to port 7777 (defined in constants.py/PYTHON_SERVER_PORT = "7777")
+Port defaults to `7777` [PYTHON_SERVER_PORT](simple_grpc_py/constants.py)
+`python simple_grpc_py/server.py` 
+
+### Run a retry client against the above server
+
+- Client configured with channel args / service_config:  
+`python simple_grpc_py/configured_retry_client.py 7777`
 
 Client with manual error handling
 `python simple_grpc_py/manual_retry_client.py 7777`
 
 
-## Running against Simple gRPC Ruby App
+### Running against Simple gRPC Ruby App  
 
-Client configured with channel args / service_config:
+(Assumes the ruby server is running on the default [RUBY_SERVER_PORT](simple_grpc_py/constants.py))
+
+- Client configured with channel args / service_config:
 `python simple_grpc_py/configured_retry_client.py 5555`
 
 Client with manual error handling
-`python simple_grpc_py/manual_retry_client.py` - defaults to port 5555 (defined in constants.py/RUBY_SERVER_PORT = "5555")
-
+`python simple_grpc_py/manual_retry_client.py 5555`
