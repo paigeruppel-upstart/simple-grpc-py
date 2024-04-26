@@ -3,7 +3,7 @@ import grpc
 from ...simple_service.v1 import simple_retry_api_pb2 as simple__service_dot_v1_dot_simple__retry__api__pb2
 
 class SimpleRetryAPIStub(object):
-    """A configurable retry api
+    """A configurable retry API
     """
 
     def __init__(self, channel):
@@ -15,7 +15,7 @@ class SimpleRetryAPIStub(object):
         self.RetriableAction = channel.unary_unary('/simple_service.v1.SimpleRetryAPI/RetriableAction', request_serializer=simple__service_dot_v1_dot_simple__retry__api__pb2.RetriableActionRequest.SerializeToString, response_deserializer=simple__service_dot_v1_dot_simple__retry__api__pb2.RetriableActionResponse.FromString)
 
 class SimpleRetryAPIServicer(object):
-    """A configurable retry api
+    """A configurable retry API
     """
 
     def RetriableAction(self, request, context):
@@ -31,7 +31,7 @@ def add_SimpleRetryAPIServicer_to_server(servicer, server):
     server.add_generic_rpc_handlers((generic_handler,))
 
 class SimpleRetryAPI(object):
-    """A configurable retry api
+    """A configurable retry API
     """
 
     @staticmethod
