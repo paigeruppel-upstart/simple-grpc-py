@@ -28,19 +28,27 @@ Port defaults to `7777` [PYTHON_SERVER_PORT](simple_grpc_py/constants.py)
 
 ### Run a retry client against the above server
 
-- Client configured with channel args / service_config:  
-`python simple_grpc_py/configured_retry_client.py 7777`
+Client configured with channel args / service_config:    
+```shell
+python simple_grpc_py/configured_retry_client.py 7777
+```
 
-Client with manual error handling
-`python simple_grpc_py/manual_retry_client.py 7777`
+Client with manual error handling:  
+```shell
+python simple_grpc_py/manual_retry_client.py 7777
+```
 
 
 ### Running against Simple gRPC Ruby App  
 
 (Assumes the ruby server is running on the default [RUBY_SERVER_PORT](simple_grpc_py/constants.py))
 
-- Client configured with channel args / service_config:
-`python simple_grpc_py/configured_retry_client.py 5555`
+Client configured with channel args / service_config:  
+```shell
+python simple_grpc_py/configured_retry_client.py 5555
+```
 
-Client with manual error handling
-`python simple_grpc_py/manual_retry_client.py 5555`
+Client with manual error handling:  
+```shell
+python simple_grpc_py/manual_retry_client.py 5555
+```
